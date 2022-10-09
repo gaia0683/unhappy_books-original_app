@@ -47,7 +47,7 @@ https://www.figma.com/file/dcEUHR6fqd9UDngU6BpFyi/%E7%84%A1%E9%A1%8C?node-id=5%3
 
 ---
 
-![](2022-10-09-21-37-31.png)
+![](2022-10-09-21-44-05.png)
 
 ## 画面遷移図
 
