@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 開発言語
 
-Things you may want to cover:
+---
 
-* Ruby version
+- Ruby 3.0.1
+- Rails 6.1.6
 
-* System dependencies
+## 就職 Term の技術
 
-* Configuration
+---
 
-* Database creation
+- devise
+- お気に入り機能
 
-* Database initialization
+## カリキュラム外の技術
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+- 楽天 API
 
-* Deployment instructions
+## 実行手順
 
-* ...
+---
+
+`$ git@github.com:gaia0683/unhappy_books-original_app.git $ cd unhappy_books-original_app $ bundle install $ rails db:create && rails db:migrate $ rails s`
+
+## カタログ設計
+
+---
+
+https://docs.google.com/spreadsheets/d/1tJM-9ibSDB3m7unyGWLAdz3qc2n0YXy4lsvVECp4f8k/edit#gid=157013831
+
+## ワイヤーフレーム
+
+---
+
+https://www.figma.com/file/dcEUHR6fqd9UDngU6BpFyi/%E7%84%A1%E9%A1%8C?node-id=5%3A81
+
+## ER 図
+
+---
+
+[ER 図](https://app.diagrams.net/)
+
+## 画面遷移図
+
+---
+
+[画面遷移図](https://app.diagrams.net/)
