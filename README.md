@@ -24,7 +24,12 @@
 
 ---
 
-`$ git@github.com:gaia0683/unhappy_books-original_app.git $ cd unhappy_books-original_app $ bundle install $ rails db:create && rails db:migrate $ rails s`
+```
+$ git@github.com:gaia0683/unhappy_books-original_app.git
+$ cd unhappy_books-original_app
+$ bundle install
+$ rails db:create && rails db:migrate $ rails s
+```
 
 ## カタログ設計
 
@@ -42,10 +47,10 @@ https://www.figma.com/file/dcEUHR6fqd9UDngU6BpFyi/%E7%84%A1%E9%A1%8C?node-id=5%3
 
 ---
 
-[ER 図](https://app.diagrams.net/)
+![](2022-10-09-21-37-31.png)
 
 ## 画面遷移図
 
 ---
 
-[画面遷移図](https://app.diagrams.net/)
+![](2022-10-09-21-38-14.png)
