@@ -1,7 +1,7 @@
 <%= link_to "search",new_book_search_path %>
 
 <% @book_searches.each do |book| %>
-  <div class="commic-data">
+  <div class="nobel_data">
     <%= link_to (image_tag(book.medium_image_url)), book.item_url %>
     <%= book.title %>
     <%= book.sales_date %>

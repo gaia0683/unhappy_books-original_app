@@ -62,3 +62,7 @@ gem 'devise'
 gem 'rexml'
 
 gem 'rakuten_web_service'
+
+gem 'dotenv-rails'
+
+gem 'dotenv'
