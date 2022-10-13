@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true
   before_validation { email.downcase! }
 end
