@@ -10,5 +10,4 @@ class BookSearchesController < ApplicationController
 
   def show
   end
-
 end
