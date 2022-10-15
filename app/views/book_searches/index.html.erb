@@ -1,8 +1,10 @@
-<% @book_searches.each do |book| %>
+<h1>検索結果一覧</h1>
+<% @books.each do |book| %>
   <div class="nobel_data">
-    <%= link_to (image_tag(book.medium_image_url)), book.item_url %>
-    <%= book.title %>
-    <%= book.sales_date %>
-    <%= book.isbn%>
+    <%= link_to (image_tag(book.image)), book.url %>
+    <p><%= book.title %></p>
+    <p><%= link_to '詳細',book_search_path(isbn: book.isbn) %></p>
   </div>
 <% end %>
+
+<%= link_to '検索に戻る', new_book_search_path %>
