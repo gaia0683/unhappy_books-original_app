@@ -26,6 +26,35 @@ ActiveRecord::Schema.define(version: 2022_10_14_070634) do
     t.bigint "isbn", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "rating_id", null: false
+    t.index ["rating_id"], name: "index_categories_on_rating_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.float "point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -36,8 +65,14 @@ ActiveRecord::Schema.define(version: 2022_10_14_070634) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.string "nickname", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "ratings"
+  add_foreign_key "ratings", "books"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end
