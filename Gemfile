@@ -66,3 +66,9 @@ gem 'rakuten_web_service'
 gem 'dotenv-rails'
 
 gem 'dotenv'
+
+gem 'rails_admin'
+
+gem 'cancancan'
+
+gem 'rails-i18n'
