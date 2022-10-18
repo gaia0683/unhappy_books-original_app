@@ -45,7 +45,7 @@ https://www.figma.com/file/dcEUHR6fqd9UDngU6BpFyi/%E7%84%A1%E9%A1%8C?node-id=5%3
 
 ## ER 図
 
-![](https://user-images.githubusercontent.com/106715810/196342990-4d3d028c-5720-4231-927e-f49f427f9775.jpg)
+![](https://user-images.githubusercontent.com/106715810/196365119-a2fac6bc-b6d9-4072-94d8-e183191d4f12.jpg)
 
 ---
 
