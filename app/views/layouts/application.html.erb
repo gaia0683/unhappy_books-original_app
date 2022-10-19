@@ -15,9 +15,10 @@
       <% if current_user.admin? %>
         <%= link_to '管理', rails_admin_path %>
       <% end %>
-      <%= link_to "本を検索", new_book_search_path %>
-      <%= link_to "ユーザー情報", users_show_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to '本一覧', books_path %>
+      <%= link_to '本を検索', new_book_search_path %>
+      <%= link_to 'ユーザー情報', users_show_path %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'ログイン', user_session_path %>
       <%= link_to 'アカウント作成', new_user_registration_path %>
