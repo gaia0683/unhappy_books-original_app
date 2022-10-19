@@ -7,6 +7,10 @@
 
 <% @user.reviews.each do |review| %>
   <p><%= link_to (image_tag(review.book.image)), review.book.url %></p>
+  <% review.ratings.each do |rating| %>
+    <p><%= Category.find(rating.category_id).name %></p>
+    <p><%= rating.point %></p>
+  <% end %>
   <p><%= review.book.title %></p>
   <p><%= review.title %></p>
   <p><%= review.content %></p>
