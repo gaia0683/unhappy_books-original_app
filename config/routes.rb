@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-  resources :books, only: [:index]
-  root 'book_searches#new'
+  root 'books#index'
   resources :book_searches, only: [:index, :new,:show], param: :isbn
   resources :reviews
+  resources :books, only: [:index, :show]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
