@@ -6,11 +6,12 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root 'books#index'
-  resources :book_searches, only: [:index, :new,:show], param: :isbn
+  resources :book_searches, only: [:index,:new,:show], param: :isbn
+
   resources :books, only: [:index, :show] do
-    resources :reviews, except: [:index,:new,:create,:show]
+    resources :reviews, except: [:index,:show]
   end
-  resources :reviews, only: [:index,:new,:create]
+  resources :another_reviews, only: [:new,:create]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
