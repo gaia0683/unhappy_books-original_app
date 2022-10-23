@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   end
   root 'books#index'
   resources :book_searches, only: [:index,:new,:show], param: :isbn
-
   resources :books, only: [:index, :show] do
     resources :reviews, except: [:index,:show]
   end
   resources :another_reviews, only: [:new,:create]
+  resources :favorites, only: [:create, :destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
