@@ -1,4 +1,4 @@
-<%= link_to likes_path(review_id: @review.id), id: "js-like-button-for-book-#{@review.id}", method: :post,
+<%= link_to likes_path(review_id: review.id), id: "js-like-button-for-book-#{review.id}", method: :post,
 remote: true do %>
-<i class="fa-regular fa-thumbs-up"></i>
+<i class="fa fa-thumbs-o-up"></i>
 <% end %>

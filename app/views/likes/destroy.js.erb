@@ -1,1 +1,1 @@
-$("#js-like-button-for-book-<%= @like.id %>").replaceWith("<%= j(render('books/unlike', review: @review)) %>")
+$("#js-like-button-for-book-<%= @like.id %>").replaceWith("<%= j(render('books/like', review: @review)) %>")
