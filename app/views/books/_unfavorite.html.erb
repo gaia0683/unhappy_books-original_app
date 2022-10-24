@@ -1,0 +1,3 @@
+<%= link_to favorite_path(id: @favorite.id),id: "js-favorite-button-for-book-#{@favorite.id}",method: :delete, remote: true do %>
+  <i class="fa fa-star-o" ></i>
+<% end %>
