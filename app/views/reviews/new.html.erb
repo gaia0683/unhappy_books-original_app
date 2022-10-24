@@ -20,17 +20,17 @@
       <p><%= rating_form.label :category %></p>
       <p><%= rating_form.collection_select(:category_id,Category.all,:id,:name,include_blank: '選択してください') %></p>
     </div>
-
-    <div class="rating_point">
+    <div id="rating_point_<%= rating_form.index %>">
       <p><%= rating_form.label :point %></p>
       <p><%= rating_form.hidden_field :point %></p>
       <script>
-      $('.rating_point').raty({
+      $('#rating_point_<%= rating_form.index %>').empty();
+      $('#rating_point_<%= rating_form.index %>').raty({
         size :36,
         starHalf: '<%= asset_path('star-half.png') %>',
         starOff: '<%= asset_path('star-off.png') %>',
         starOn: '<%= asset_path('star-on.png') %>',
-        scoreName: 'review[point]',
+        scoreName: '<%= "review[ratings_attributes][#{rating_form.index}][point]" %>',
         half: true
       });
       </script>

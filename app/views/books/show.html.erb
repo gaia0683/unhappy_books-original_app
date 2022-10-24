@@ -15,22 +15,37 @@
 <h2>本のレビュー</h2>
 
   <% @book.reviews.each do |review| %>
-    <p><%= review.user.nickname %></p>
+    <p>ニックネーム:<%= review.user.nickname %></p>
     <% review.ratings.each do |rating| %>
       <p><%= Category.find(rating.category_id).name %></p>
-      <p><%= rating.point %></p>
+      <div class="rating_point">
+        <%= rating.point %>
+      </div>
+      <script>
+        $('.rating_point').empty();
+        $('.rating_point').raty({
+          size :36,
+          starHalf: '<%= asset_path('star-half.png') %>',
+          starOff: '<%= asset_path('star-off.png') %>',
+          starOn: '<%= asset_path('star-on.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= rating.point %>
+        });
+      </script>
     <% end %>
-  <p><%= review.title %></p>
-  <p><%= review.content %></p>
+  <h3><%= review.title %></h3>
+  <%= review.content %></p>
+  <% @like = review.likes.find_by(user: current_user) %>
   <% if @like.present? %>
-    <%= render 'like' %>
+    <p><%= render 'unlike' %></p>
   <% else %>
-    <%= render 'unlike' %>
+    <%= render 'like',review: review %>
   <% end %>
-  <% #if current_user.id == @book.reviews.user %>
+  <% if current_user.id == review.user_id %>
     <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id) %>
-  <% #end %>
   <% end %>
+<% end %>
 
 
 

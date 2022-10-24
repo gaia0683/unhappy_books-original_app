@@ -6,12 +6,26 @@
 <h2>このユーザーが書いたレビュー一覧</h2>
 
 <% @user.reviews.each do |review| %>
-  <p><%= link_to (image_tag(review.book.image)), review.book.url %></p>
-  <% review.ratings.each do |rating| %>
-    <p><%= Category.find(rating.category_id).name %></p>
-    <p><%= rating.point %></p>
-  <% end %>
+  <><%= link_to (image_tag(review.book.image)), review.book.url %></p>
   <p><%= review.book.title %></p>
+    <% review.ratings.each do |rating| %>
+    <p><%= Category.find(rating.category_id).name %></p>
+    <div class="rating_point">
+      <%= rating.point %>
+    </div>
+    <script>
+      $('.rating_point').empty();
+      $('.rating_point').raty({
+        size :36,
+        starHalf: '<%= asset_path('star-half.png') %>',
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn: '<%= asset_path('star-on.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= rating.point %>
+      });
+    </script>
+  <% end %>
   <p><%= review.title %></p>
   <p><%= review.content %></p>
   <p><%= link_to '本の詳細', book_path(review.book.id) %></p>
