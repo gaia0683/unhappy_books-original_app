@@ -1,0 +1,40 @@
+<h1>レビューの作成</h1>
+<%= notice %>
+
+<%= form_with(model: [:book,@review], local: true) do |f| %>
+  <%= f.hidden_field :isbn, value: params[:isbn] %>
+  <div class="review_title">
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+  </div>
+
+  <div class="review_content">
+    <p><%= f.label :content %></p>
+    <p><%= f.text_area :content %></p>
+  </div>
+
+
+  <%= f.fields_for :ratings, @review.ratings do |rating_form| %>
+    <%= rating_form.hidden_field :user_id, value: current_user.id %>
+    <div class="rating_category">
+      <p><%= rating_form.label :category %></p>
+      <p><%= rating_form.collection_select(:category_id,Category.all,:id,:name,include_blank: '選択してください') %></p>
+    </div>
+
+    <div class="rating_point">
+      <p><%= rating_form.label :point %></p>
+      <p><%= rating_form.hidden_field :point %></p>
+      <script>
+      $('.rating_point').raty({
+        size :36,
+        starHalf: '<%= asset_path('star-half.png') %>',
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn: '<%= asset_path('star-on.png') %>',
+        scoreName: 'review[point]',
+        half: true
+      });
+      </script>
+    </div>
+  <% end %>
+  <%= f.submit '登録する' %>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>レビューの作成</h1>
+<%= notice %>
+
+<%= form_with(model: @review, url: another_reviews_path,method: :post, local: true) do |f| %>
+  <%= f.hidden_field :isbn, value: params[:isbn] %>
+  <div class="review_title">
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title %></p>
+  </div>
+
+  <div class="review_content">
+    <p><%= f.label :content %></p>
+    <p><%= f.text_area :content %></p>
+  </div>
+
+
+  <%= f.fields_for :ratings, @review.ratings do |rating_form| %>
+    <%= rating_form.hidden_field :user_id, value: current_user.id %>
+    <div class="rating_category">
+      <p><%= rating_form.label :category %></p>
+      <p><%= rating_form.collection_select(:category_id,Category.all,:id,:name) %></p>
+    </div>
+
+    <div class="rating_point">
+      <p><%= rating_form.label :point %></p>
+      <p><%= rating_form.select :point,{"0":0,"1":1,"2":2,"3":3,"4":4,"5":5 } %></p>
+    </div>
+  <% end %>
+  <%= f.submit '登録する' %>
+<% end %>

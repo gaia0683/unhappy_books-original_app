@@ -1,0 +1,37 @@
+<p><%= notice %></p>
+
+<h1>本の詳細</h1>
+
+<%= link_to (image_tag(@book.image)), @book.url %>
+  <p><%= link_to '本のリンク', @book.url %></p>
+    <% if @favorite.present? %>
+      <%= render 'unfavorite' %>
+    <% else %>
+      <%= render 'favorite' %>
+    <% end %>
+  <p><%= @book.title %></p>
+  <p><%= @book.author %></p>
+  <p><%= @book.publisher_name %></p>
+<h2>本のレビュー</h2>
+
+  <% @book.reviews.each do |review| %>
+    <p><%= review.user.nickname %></p>
+    <% review.ratings.each do |rating| %>
+      <p><%= Category.find(rating.category_id).name %></p>
+      <p><%= rating.point %></p>
+    <% end %>
+  <p><%= review.title %></p>
+  <p><%= review.content %></p>
+  <% if @like.present? %>
+    <%= render 'like' %>
+  <% else %>
+    <%= render 'unlike' %>
+  <% end %>
+  <% #if current_user.id == @book.reviews.user %>
+    <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id) %>
+  <% #end %>
+  <% end %>
+
+
+
+<%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn) %>
