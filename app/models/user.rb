@@ -9,6 +9,8 @@ class User < ApplicationRecord
   before_validation { email.downcase! }
   has_many :reviews
   has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_reviews, through: :likes, source: :review
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
