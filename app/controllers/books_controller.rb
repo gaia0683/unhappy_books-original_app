@@ -6,6 +6,6 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @favorite = current_user.favorites.find_by(book_id: @book.id)
-    @like = current_user.like_reviews
+    #@like = current_user.like_reviews
   end
 end
