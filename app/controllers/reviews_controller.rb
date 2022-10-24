@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    @review.ratings.build
+    2.times {@review.ratings.build}
     results = RakutenWebService::Books::Book.search(isbn: params[:isbn])
     @book = Book.new(read(results.first))
+    session[:isbn] = params[:isbn]
   end
 
   def create
@@ -21,16 +22,20 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to book_path(@book.id), notice: 'レビューを登録しました！'
       else
-        render:new, notice: '内容を入力してください！'
+        redirect_to new_book_review_path(isbn: session[:isbn]), notice: '内容を入力してください！'
       end
     else
       redirect_to book_path(@book.id), notice: 'レビューは1つしか登録できません'
     end
+    session[:isbn] = nil
   end
 
   def edit
     @book = Book.find(params[:book_id])
     @review = Review.find(params[:id])
+    unless current_user.id == @review.user.id
+      redirect_to book_path(@book.id), notice: '作成者以外は編集できません'
+    end
   end
 
   def update
