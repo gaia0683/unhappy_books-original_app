@@ -1,6 +1,9 @@
 {
   "name": "book-review-app",
   "private": true,
+  "engines": {
+    "node": "16.16.0"
+  },
   "dependencies": {
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
