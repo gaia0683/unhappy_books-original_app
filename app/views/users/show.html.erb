@@ -6,7 +6,7 @@
 <h2>このユーザーが書いたレビュー一覧</h2>
 
 <% @user.reviews.each do |review| %>
-  <><%= link_to (image_tag(review.book.image)), review.book.url %></p>
+  <%= link_to (image_tag(review.book.image)), review.book.url %></p>
   <p><%= review.book.title %></p>
     <% review.ratings.each do |rating| %>
     <p><%= Category.find(rating.category_id).name %></p>
