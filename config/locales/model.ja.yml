@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models: book:本
+      user:ユーザー
+      review:レビュー
+      rating:評価
+      category:カテゴリー
+      favorite:お気に入り
+      like:いいね
+    attributes:
+      book: title:タイトル
+        author:著者
+        publisher_name:出版社
+      user: name:名前
+        nickname:ニックネーム
+        admin:管理者
+      review: title:タイトル
+        content:内容
+      rating: point:点
+      category: name:名前
