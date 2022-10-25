@@ -74,3 +74,5 @@ gem 'cancancan'
 gem 'rails-i18n'
 
 gem 'cocoon'
+
+gem 'devise-i18n'
