@@ -2,7 +2,7 @@
 <%= notice %>
 
 <%= form_with(model: [:book,@review], local: true) do |f| %>
-  <%= f.hidden_field :isbn, value: params[:isbn] %>
+<%= f.hidden_field :isbn, value: params[:isbn] %>
   <div class="review_title">
     <p><%= f.label :title %></p>
     <p><%= f.text_field :title %></p>
