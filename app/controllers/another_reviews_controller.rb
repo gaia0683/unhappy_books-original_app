@@ -1,7 +1,7 @@
 class AnotherReviewsController < ApplicationController
   def new
     @review = Review.new
-    @review.ratings.build
+    2.times {@review.ratings.build}
     results = RakutenWebService::Books::Book.search(isbn: params[:isbn])
     @book = Book.new(read(results.first))
   end
