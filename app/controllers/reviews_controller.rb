@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to books_path
     else
-      render:new
+      redirect_to edit_book_review_path(id: params[:id])
     end
   end
 
