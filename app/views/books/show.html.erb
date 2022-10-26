@@ -46,7 +46,7 @@
         });
       </script>
     <% end %>
-  <p class="col-1"><%= review.content %></p>
+  <p class="col-12 text-break"><%= review.content %></p>
   <% @like = review.likes.find_by(user: current_user) %>
   <% if @like.present? %>
     <p class="col-1"><%= render 'unlike' %></p>

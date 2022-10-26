@@ -3,7 +3,7 @@
   <div class="nobel_data">
     <%= link_to (image_tag(book.image)), book.url %>
     <p><%= book.title %></p>
-    <p><%= link_to '詳細',book_search_path(isbn: book.isbn) %></p>
+    <p><%= link_to '詳細',book_search_path(isbn: book.isbn), class:'book_show' %></p>
   </div>
 <% end %>
 

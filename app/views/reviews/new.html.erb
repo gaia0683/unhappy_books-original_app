@@ -1,7 +1,6 @@
 <h1>レビューの作成</h1>
-<%= notice %>
-
 <%= form_with(model: [:book,@review], local: true) do |f| %>
+
 <%= f.hidden_field :isbn, value: params[:isbn] %>
   <div class="review_title">
     <p><%= f.label :title %></p>
