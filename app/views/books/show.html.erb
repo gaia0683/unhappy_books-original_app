@@ -1,25 +1,37 @@
 <p><%= notice %></p>
 
 <h1>本の詳細</h1>
+<div class="row mb-5 mt-5 ">
+  <div class="col-2">
+    <%= link_to (image_tag @book.image,width:'100%'), @book.url%>
+    <div class="row">
+    <%= link_to '本のリンク', @book.url, class:"col-6" %>
 
-<%= link_to (image_tag(@book.image)), @book.url %>
-  <p><%= link_to '本のリンク', @book.url %></p>
-    <% if @favorite.present? %>
-      <%= render 'unfavorite' %>
-    <% else %>
-      <%= render 'favorite' %>
-    <% end %>
-  <p><%= @book.title %></p>
-  <p><%= @book.author %></p>
-  <p><%= @book.publisher_name %></p>
-<h2>本のレビュー</h2>
-
+    <div class="col-6">
+      <% if @favorite.present? %>
+        <%= render 'unfavorite' %>
+      <% else %>
+        <%= render 'favorite' %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+  <div class="col-7">
+    <p class="h4 mb-5"><%= @book.title %></p>
+    <p class="h4 mb-5"><%= @book.author %></p>
+    <p class="h4"><%= @book.publisher_name %></p>
+  </div>
+</div>
+<div class="row bg-light">
   <% @book.reviews.each do |review| %>
-    <p>ニックネーム:<%= review.user.nickname %></p>
+    <h3 class="col-12"><%= review.title %></h3>
+    <p class="col-12">ニックネーム:<%= review.user.nickname %></p>
     <% review.ratings.each do |rating| %>
-      <p><%= Category.find(rating.category_id).name %></p>
+      <p class="col-1"><%= Category.find(rating.category_id).name %></p>
+      <div class="col-11">
       <div class="rating_point">
         <%= rating.point %>
+      </div>
       </div>
       <script>
         $('.rating_point').empty();
@@ -34,19 +46,18 @@
         });
       </script>
     <% end %>
-  <h3><%= review.title %></h3>
-  <%= review.content %></p>
+  <p class="col-1"><%= review.content %></p>
   <% @like = review.likes.find_by(user: current_user) %>
   <% if @like.present? %>
-    <p><%= render 'unlike' %></p>
+    <p class="col-1"><%= render 'unlike' %></p>
   <% else %>
-    <%= render 'like',review: review %>
+    <p class="col-1"><%= render 'like',review: review %></p>
   <% end %>
-  <% if current_user.id == review.user_id %>
-    <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id) %>
+    <% if current_user.id == review.user_id %>
+      <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id), class:"col-12" %>
+    <% end %>
   <% end %>
-<% end %>
-
+</div>
 
 
 <%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn) %>
