@@ -4,6 +4,7 @@ class AnotherReviewsController < ApplicationController
     2.times {@review.ratings.build}
     results = RakutenWebService::Books::Book.search(isbn: params[:isbn])
     @book = Book.new(read(results.first))
+    session[:isbn] = params[:isbn]
   end
 
   def create
@@ -21,7 +22,7 @@ class AnotherReviewsController < ApplicationController
       if @review.save
         redirect_to book_path(@book.id), notice: 'レビューを登録しました！'
       else
-        render:new, notice: '内容を入力してください！'
+        redirect_to new_another_review_path(isbn: session[:isbn]), notice: '内容を入力してください！'
       end
     else
       redirect_to book_path(@book.id), notice: 'レビューは1つしか登録できません'
