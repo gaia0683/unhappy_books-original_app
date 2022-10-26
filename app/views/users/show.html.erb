@@ -2,7 +2,7 @@
 
 <p>ニックネーム:<%= @user.nickname %></p>
 
-
+<%= link_to 'ユーザーの編集', edit_user_registration_path(current_user.id) %>
 <h2>このユーザーが書いたレビュー一覧</h2>
 <div class="row w-100 bg-light ">
 <% @user.reviews.each do |review| %>
