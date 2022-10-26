@@ -4,15 +4,14 @@
 
 
 <h2>このユーザーが書いたレビュー一覧</h2>
-
+<div class="row w-100 bg-light ">
 <% @user.reviews.each do |review| %>
+  <div class="col-3 mt-5 mb-5">
   <%= link_to (image_tag(review.book.image)), review.book.url %></p>
   <p><%= review.book.title %></p>
     <% review.ratings.each do |rating| %>
     <p><%= Category.find(rating.category_id).name %></p>
-    <div class="rating_point">
-      <%= rating.point %>
-    </div>
+    <div class="rating_point" data-score="<%= rating.point %>"></div>
     <script>
       $('.rating_point').empty();
       $('.rating_point').raty({
@@ -34,3 +33,5 @@
   </div>
 <% end %>
 </div>
+
+<%= link_to 'ユーザーの編集', edit_user_registration_path(current_user.id) %>
