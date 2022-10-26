@@ -28,10 +28,8 @@
     </script>
   <% end %>
   <p><%= review.title %></p>
-  <p><%= review.content %></p>
+  <p class="text-break"><%= truncate(review.content, length: 20)%></p>
   <p><%= link_to '本の詳細', book_path(review.book.id) %></p>
   </div>
 <% end %>
 </div>
-
-<%= link_to 'ユーザーの編集', edit_user_registration_path(current_user.id) %>
