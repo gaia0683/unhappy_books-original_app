@@ -22,11 +22,15 @@
         starOn: '<%= asset_path('star-on.png') %>',
         half: true,
         readOnly: true,
-        score: <%= rating.point %>
+        score: function() {
+          return $(this).attr('data-score');
+        },
       });
     </script>
   <% end %>
   <p><%= review.title %></p>
   <p><%= review.content %></p>
   <p><%= link_to '本の詳細', book_path(review.book.id) %></p>
+  </div>
 <% end %>
+</div>
