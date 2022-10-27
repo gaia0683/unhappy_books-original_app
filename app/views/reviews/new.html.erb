@@ -30,7 +30,9 @@
     </div>
     <div id="rating_point_<%= rating_form.index %>">
       <p><%= rating_form.label :point %></p>
-      <p><%= rating_form.hidden_field :point %></p>
+      <div id="rating_star">
+        <p><%= rating_form.hidden_field :point %></p>
+      </div>
       <script>
       $('#rating_point_<%= rating_form.index %>').empty();
       $('#rating_point_<%= rating_form.index %>').raty({
