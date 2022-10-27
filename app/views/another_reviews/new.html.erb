@@ -1,8 +1,17 @@
 <h1>レビューの作成</h1>
-<%= notice %>
+<% if @review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
 
 <%= form_with(model: @review, url: another_reviews_path,method: :post, local: true) do |f| %>
   <%= f.hidden_field :isbn, value: params[:isbn] %>
+
   <div class="review_title">
     <p><%= f.label :title %></p>
     <p><%= f.text_field :title %></p>
