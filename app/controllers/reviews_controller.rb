@@ -5,6 +5,12 @@ class ReviewsController < ApplicationController
     results = RakutenWebService::Books::Book.search(isbn: params[:isbn])
     @book = Book.new(read(results.first))
     session[:isbn] = params[:isbn]
+
+    return unless session[:review]
+    @review = Review.new(session[:review])
+    @review.book = @book
+    @review.valid?
+    session[:review] = nil
   end
 
   def create
@@ -22,6 +28,7 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to book_path(@book.id), notice: 'レビューを登録しました！'
       else
+        session[:review] = review_params
         redirect_to new_book_review_path(isbn: session[:isbn]), notice: '内容を入力してください！'
       end
     else
@@ -42,7 +49,7 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to books_path
+      redirect_to book_path(@book.id), notice: 'レビューを編集しました！'
     else
       redirect_to edit_book_review_path(id: params[:id])
     end
