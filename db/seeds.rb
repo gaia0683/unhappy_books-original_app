@@ -81,13 +81,13 @@ Book.create(
   isbn: 9784041062494
 )
 Review.create(
-  title: '読了後の脱力感が圧巻です！'
+  title: '読了後の脱力感が圧巻です！',
   content: '主人公たちの生い立ちを追っていく中で様々な出来事があり、最後は、、、ぜひ自分の目でご覧ください！',
   user_id: 2,
   book_id: 2
 )
 Review.create(
-  title: '映画の緊張感がそのまま本に！'
+  title: '映画の緊張感がそのまま本に！',
   content: '映像での恐怖がそのまま本でも伝わってきました！今日は眠れなさそうです、、、',
   user_id: 4,
   book_id: 1
