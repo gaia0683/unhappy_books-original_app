@@ -2,7 +2,6 @@
 <div class="row w-100">
   <% @books.each do |book| %>
   <div class="col-3 mb-5">
-    <%= link_to (image_tag(book.image)), book.url %>
     <p><%= link_to '本のリンク', book.url %></p>
     <p><%= book.title %></p>
     <p><%= link_to '本の詳細', book_path(book.id) %></p>
