@@ -20,24 +20,24 @@ User.create(
   password_confirmation: 'noahnoah33'
 )
 User.create(
-  name: '大塚昂士'
-  nickname: 'バク'
-  email: 'nightmare@gmail.com'
-  password: 'takashio99'
+  name: '大塚昂士',
+  nickname: 'バク',
+  email: 'nightmare@gmail.com',
+  password: 'takashio99',
   password_confirmation: 'takashio99'
 )
 User.create(
-  name: 'ヤング愛美'
-  nickname: 'アメリカン'
-  email: 'latte_love@icloud.com'
-  password: 'yang_love96'
+  name: 'ヤング愛美',
+  nickname: 'アメリカン',
+  email: 'latte_love@icloud.com',
+  password: 'yang_love96',
   password: 'yang_love96'
 )
 User.create(
-  name: '倉持祐介'
-  nickname: 'イケメン'
-  email: 'handsome_cool@gmail.com'
-  password: 'pokepoke97'
+  name: '倉持祐介',
+  nickname: 'イケメン',
+  email: 'handsome_cool@gmail.com',
+  password: 'pokepoke97',
   password: 'pokepoke97'
 )
 Book.create(
@@ -145,8 +145,8 @@ Category.create(
   name: 3
 )
 Category.create(
-  name:4
+  name: 4
 )
 Category.create(
-  name:5
+  name: 5
 )
