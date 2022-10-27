@@ -27,13 +27,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
         fill_in 'review_title', with: 'aa'
         fill_in 'review_content', with: 'aa'
 
-        #category = all('.rating_category')
-        #expect(page).to have_selector("img[src$='star-off']")
 
-        #select '後味悪い', from: "#{category[0]}"
-        binding.irb
-        find('#rating_point_0','img[alt="3"]').click
-        click_button '登録する'
       end
     end
   end
