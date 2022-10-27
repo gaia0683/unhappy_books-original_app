@@ -27,7 +27,9 @@
     <h3 class="col-12"><%= review.title %></h3>
     <p class="col-12">ニックネーム:<%= review.user.nickname %></p>
     <% review.ratings.each do |rating| %>
-      <p class="col-1"><%= Category.find(rating.category_id).name %></p>
+      <% if rating.category_id.present? %>
+        <p class="col-1"><%= Category.find(rating.category_id).name %></p>
+      <% end %>
       <div class="col-11">
       <div class="rating_point">
         <%= rating.point %>
