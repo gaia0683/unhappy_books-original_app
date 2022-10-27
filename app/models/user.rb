@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :nickname, presence: true, uniqueness: true
-  before_validation { email.downcase! }
   has_many :reviews
   has_many :favorites, dependent: :destroy
   has_many :likes, dependent: :destroy
