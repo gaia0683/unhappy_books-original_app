@@ -10,7 +10,9 @@
   <%= link_to (image_tag(review.book.image)), review.book.url %></p>
   <p><%= review.book.title %></p>
     <% review.ratings.each do |rating| %>
-    <p><%= Category.find(rating.category_id).name %></p>
+    <% if rating.category_id.present? %>
+      <p><%= Category.find(rating.category_id).name %></p>
+    <% end %>
     <div class="rating_point" data-score="<%= rating.point %>"></div>
     <script>
       $('.rating_point').empty();
@@ -27,7 +29,7 @@
       });
     </script>
   <% end %>
-  <p><%= review.title %></p>
+  <h3><%= review.title %></h3>
   <p class="text-break"><%= truncate(review.content, length: 20)%></p>
   <p><%= link_to '本の詳細', book_path(review.book.id) %></p>
   </div>

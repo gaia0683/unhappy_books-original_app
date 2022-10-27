@@ -20,9 +20,8 @@
       <p><%= rating_form.collection_select(:category_id,Category.all,:id,:name) %></p>
     </div>
 
-    <div class="rating_point">
-      <p><%= rating_form.label :point %></p>
-      <div id="rating_point_<%= rating_form.index %>">
+    <p><%= rating_form.label :point %></p>
+    <div id="rating_point_<%= rating_form.index %>">
       <p><%= rating_form.hidden_field :point %></p>
       <script>
       $('#rating_point_<%= rating_form.index %>').empty();
@@ -36,7 +35,6 @@
         score: <%= rating_form.object.point %>
       });
       </script>
-    </div>
     </div>
   <% end %>
   <%= f.submit '登録する' %>

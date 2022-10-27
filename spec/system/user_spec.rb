@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe 'ユーザーのCRUD機能', type: :system do
-  describe '新規作成機能' do
+  describe 'ユーザー新規作成機能' do
     before do
       visit new_user_session_path
     end
@@ -91,6 +91,27 @@ RSpec.describe 'ユーザーのCRUD機能', type: :system do
         click_link 'ユーザー情報'
 
         expect(page).to have_selector 'p', text: 'kkk'
+      end
+    end
+  end
+  describe 'ゲストログイン機能' do
+    before do
+      visit root_path
+    end
+    context 'ゲストログインに関するテスト' do
+      it 'ゲストログインができること' do
+        click_link 'ゲストログイン'
+
+        click_link 'ユーザー情報'
+
+        expect(page).to have_selector 'p', text: 'ゲスト'
+      end
+      it '管理者のゲストログインができること' do
+        click_link 'ゲストログイン(管理者)'
+
+        click_link 'ユーザー情報'
+
+        expect(page).to have_selector 'p', text: 'ゲスト管理者'
       end
     end
   end
