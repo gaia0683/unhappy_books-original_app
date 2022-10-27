@@ -31,14 +31,14 @@ User.create(
   nickname: 'アメリカン',
   email: 'latte_love@icloud.com',
   password: 'yang_love96',
-  password: 'yang_love96'
+  password_confirmation: 'yang_love96'
 )
 User.create(
   name: '倉持祐介',
   nickname: 'イケメン',
   email: 'handsome_cool@gmail.com',
   password: 'pokepoke97',
-  password: 'pokepoke97'
+  password_confirmation: 'pokepoke97'
 )
 Book.create(
   title: "リング",
