@@ -61,5 +61,6 @@
   <% end %>
 </div>
 
-
-<%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn) %>
+<% unless current_user.id == @book.reviews.find_by(user_id: current_user.id)&.user_id %>
+  <%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn) %>
+<% end %>

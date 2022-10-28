@@ -5,4 +5,8 @@
 <p><%= @book.author %></p>
 <p><%= @book.publisher_name %></p>
 
-<%= link_to "レビューを作成する", new_another_review_path(isbn: params[:isbn]) %>
+
+<% check_book=Book.find_by(isbn: @book.isbn) %>
+<% unless check_book && check_book.reviews.pluck(:user_id).include?(current_user.id) %>
+  <%= link_to "レビューを作成する", new_another_review_path(isbn: params[:isbn]) %>
+<% end %>
