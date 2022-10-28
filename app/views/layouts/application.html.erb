@@ -16,7 +16,7 @@
         <% if current_user.admin? %>
           <%= link_to '管理', rails_admin_path , class: "nav-link text-muted border p-1"%>
         <% end %>
-        <%= link_to '本一覧', books_path, class: "nav-link text-muted border p-1" %>
+        <%= link_to 'レビューがある本一覧', books_path, class: "nav-link text-muted border p-1" %>
         <%= link_to '本を検索', new_book_search_path, class: "nav-link text-muted border p-1" %>
         <%= link_to 'ユーザー情報', users_show_path, class: "nav-link text-muted border p-1" %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-muted border p-1" %>
