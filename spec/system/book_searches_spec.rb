@@ -17,7 +17,7 @@ RSpec.describe '楽天APIでの本の検索機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         expect(page).to have_selector 'p', text: '火車'
       end
@@ -33,7 +33,7 @@ RSpec.describe '楽天APIでの本の検索機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
