@@ -16,7 +16,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -38,7 +38,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -67,7 +67,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -96,7 +96,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -121,7 +121,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -156,7 +156,7 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         fill_in 'keyword', with: '火車'
 
-        click_button '本の題名を検索'
+        click_button '検索'
 
         book_shows = all('.book_show')
 
@@ -166,7 +166,8 @@ RSpec.describe 'レビューの作成機能', type: :system do
 
         click_button '登録する'
 
-        expect(page).to have_content '内容を入力してください！'
+        expect(page).to have_content 'タイトルを入力してください'
+        expect(page).to have_content '内容を入力してください'
       end
     end
   end
