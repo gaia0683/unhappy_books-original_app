@@ -31,9 +31,9 @@
         <p class="col-1"><%= Category.find(rating.category_id).name %></p>
       <% end %>
       <div class="col-11">
-      <div class="rating_point">
-        <%= rating.point %>
-      </div>
+        <div class="rating_point">
+          <%= rating.point %>
+        </div>
       </div>
       <script>
         $('.rating_point').empty();
