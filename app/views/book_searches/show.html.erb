@@ -6,7 +6,6 @@
 <p><%= @book.publisher_name %></p>
 
 
-<% check_book=Book.find_by(isbn: @book.isbn) %>
-<% unless check_book && check_book.reviews.pluck(:user_id).include?(current_user.id) %>
+<% unless Book.find_by(isbn: @book.isbn) && Book.find_by(isbn: @book.isbn).reviews.find_by(user_id: current_user.id)&.user_id %>
   <%= link_to "レビューを作成する", new_another_review_path(isbn: params[:isbn]) %>
 <% end %>
