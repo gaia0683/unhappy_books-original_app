@@ -1,11 +1,11 @@
 <h1>本の詳細</h1>
 <%= link_to (image_tag(@book.image)), @book.url %>
-<p><%= link_to '本のリンク', @book.url %></p>
+<p><%= link_to '本のリンク', @book.url, class:'btn btn-danger' %></p>
 <p><%= @book.title %></p>
 <p><%= @book.author %></p>
 <p><%= @book.publisher_name %></p>
 
 
 <% unless Book.find_by(isbn: @book.isbn) && Book.find_by(isbn: @book.isbn).reviews.find_by(user_id: current_user.id)&.user_id %>
-  <%= link_to "レビューを作成する", new_another_review_path(isbn: params[:isbn]) %>
+  <%= link_to "レビューを作成する", new_another_review_path(isbn: params[:isbn]), class: 'btn btn-dark' %>
 <% end %>

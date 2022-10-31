@@ -5,7 +5,7 @@
   <div class="col-2">
     <%= link_to (image_tag @book.image,width:'100%'), @book.url%>
     <div class="row">
-    <%= link_to '本のリンク', @book.url, class:"col-6" %>
+    <%= link_to '本のリンク', @book.url, class:"col-6 btn btn-danger" %>
 
     <div class="col-6">
       <% if @favorite.present? %>
@@ -56,11 +56,11 @@
     <p class="col-1"><%= render 'like',review: review %></p>
   <% end %>
     <% if current_user.id == review.user_id %>
-      <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id), class:"col-12" %>
+      <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id), class:"col-12 btn btn-warning" %>
     <% end %>
   <% end %>
 </div>
 
 <% unless current_user.id == @book.reviews.find_by(user_id: current_user.id)&.user_id %>
-  <%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn) %>
+  <%= link_to 'レビューを作成', new_book_review_path(@book.id,isbn: @book.isbn), class:'btn btn-dark' %>
 <% end %>

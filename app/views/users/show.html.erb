@@ -32,7 +32,7 @@
 <% end %>
     <h3><%= review.title %></h3>
     <p class="text-break"><%= truncate(review.content, length: 20)%></p>
-    <p><%= link_to '本の詳細', book_path(review.book.id) %></p>
+    <p><%= link_to '本の詳細', book_path(review.book.id), class: 'btn btn-danger' %></p>
   </div>
 <% end %>
 </div>
