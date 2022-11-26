@@ -1,6 +1,6 @@
-<div class=".search-box d-flex align-items-center justify-content-center mt-5">
+<div class="">
   <%= form_with url: book_searches_path, method: :get, local: true do |f| %>
-      <%= f.text_field :keyword, placeholder: 'キーワードを入力', class:"row col-15" %>
+      <%= f.text_field :keyword, placeholder: 'キーワードを入力' %>
       <%= f.hidden_field :booksGenreId,:value => "001004" %>
       <%= f.hidden_field :outOfStockFlag,:value => "1" %>
       <%= f.submit '検索', class:"row" %>

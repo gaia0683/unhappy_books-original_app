@@ -4,9 +4,9 @@
 
 <%= link_to 'ユーザーの編集', edit_user_registration_path(current_user.id) %>
 <h2>このユーザーが書いたレビュー一覧</h2>
-<div class="row w-100 bg-light ">
+<div class=>
   <% @user.reviews.each do |review| %>
-  <div class="col-3 mt-5 mb-5">
+  <div class=>
     <%= link_to (image_tag(review.book.image)), review.book.url %></p>
     <p><%= review.book.title %></p>
     <% review.ratings.each do |rating| %>

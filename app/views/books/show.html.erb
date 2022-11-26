@@ -1,13 +1,13 @@
 <p><%= notice %></p>
 
 <h1>本の詳細</h1>
-<div class="row mb-5 mt-5 ">
-  <div class="col-2">
+<div class="">
+  <div class="">
     <%= link_to (image_tag @book.image,width:'100%'), @book.url%>
-    <div class="row">
+    <div class="">
     <%= link_to '本のリンク', @book.url, class:"col-6 btn btn-danger" %>
 
-    <div class="col-6">
+    <div class="">
       <% if @favorite.present? %>
         <%= render 'unfavorite' %>
       <% else %>
@@ -16,21 +16,21 @@
     </div>
     </div>
   </div>
-  <div class="col-7">
-    <p class="h4 mb-5"><%= @book.title %></p>
-    <p class="h4 mb-5"><%= @book.author %></p>
-    <p class="h4"><%= @book.publisher_name %></p>
+  <div class="">
+    <p class=""><%= @book.title %></p>
+    <p class=""><%= @book.author %></p>
+    <p class=""><%= @book.publisher_name %></p>
   </div>
 </div>
-<div class="row bg-light">
+<div class="">
   <% @book.reviews.each do |review| %>
-    <h3 class="col-12"><%= review.title %></h3>
-    <p class="col-12">ニックネーム:<%= review.user.nickname %></p>
+    <h3 class=""><%= review.title %></h3>
+    <p class="">ニックネーム:<%= review.user.nickname %></p>
     <% review.ratings.each do |rating| %>
       <% if rating.category_id.present? %>
-        <p class="col-1"><%= Category.find(rating.category_id).name %></p>
+        <p class=""><%= Category.find(rating.category_id).name %></p>
       <% end %>
-      <div class="col-11">
+      <div class="">
         <div class="rating_point">
           <%= rating.point %>
         </div>
@@ -48,12 +48,12 @@
         });
       </script>
     <% end %>
-  <p class="col-12 text-break"><%= review.content %></p>
+  <p class=""><%= review.content %></p>
   <% @like = review.likes.find_by(user: current_user) %>
   <% if @like.present? %>
-    <p class="col-1"><%= render 'unlike' %></p>
+    <p class=""><%= render 'unlike' %></p>
   <% else %>
-    <p class="col-1"><%= render 'like',review: review %></p>
+    <p class=""><%= render 'like',review: review %></p>
   <% end %>
     <% if current_user.id == review.user_id %>
       <%= link_to 'レビューを編集', edit_book_review_path(review.id,book_id: @book.id), class:"col-12 btn btn-warning" %>

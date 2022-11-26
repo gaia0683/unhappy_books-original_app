@@ -1,14 +1,14 @@
 <h1>本の一覧</h1>
 <p><%= notice %></p>
 
-<div class="row w-100">
+<div class="">
   <% @books.each do |book| %>
-  <div class="col-3 mb-5">
+  <div class="">
     <%  %>
     <%= link_to (image_tag(book.image)), book.url %>
-    <p><%= link_to '本のリンク', book.url, class: 'btn btn-danger mt-2' %></p>
+    <p><%= link_to '本のリンク', book.url %></p>
     <p><%= book.title %></p>
-    <p><%= link_to '本の詳細', book_path(book.id),class:'book_show btn btn-dark' %></p>
+    <p><%= link_to '本の詳細', book_path(book.id) %></p>
   </div>
   <% end %>
 </div>
