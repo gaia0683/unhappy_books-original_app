@@ -14,23 +14,36 @@
  *= require_self
  */
 .header_links {
-  background-color: #411445 !important;
+  background-color: #6f268c !important;
   display: flex;
   justify-content: flex-end;
+  padding: 10px;
+}
+
+.header_links a {
+  margin-left: 20px;
+  color: #212529;
+}
+
+.top_page {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.top_page a {
+  color: #212529;
 }
 
 body {
   background-color: #444e2b;
 }
-nav {
-  z-index: 1;
-  background-color: #411445 !important;
-}
+
 .ajust {
   padding-top: 50px;
 }
+
 footer {
-  background-color: #411445 !important;
+  background-color: #6f268c !important;
   position: fixed;
   bottom: 0px;
   width: 100%;
