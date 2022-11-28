@@ -23,6 +23,12 @@
 .header_links a {
   margin-left: 20px;
   color: #bfc5ca;
+  transition: 0.3s;
+}
+
+.header_links a:hover {
+  background-color: #411445;
+  text-decoration: none;
 }
 
 .top_page {
