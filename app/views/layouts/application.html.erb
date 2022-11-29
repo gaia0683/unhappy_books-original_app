@@ -10,36 +10,36 @@
     <%= javascript_pack_tag 'application' %>
     <script src="https://kit.fontawesome.com/08c0548ff0.js" crossorigin="anonymous"></script>
   </head>
+  <header>
+    <div class='header_links'>
+    <p>unhappy_books</p>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to '管理', rails_admin_path %>
+        <% end %>
+        <%= link_to 'レビューがある本一覧', books_path %>
+        <%= link_to '本を検索', new_book_search_path %>
+        <%= link_to 'ユーザー情報', users_show_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'ログイン', user_session_path %>
+        <%= link_to 'アカウント作成', new_user_registration_path %>
+        <%= link_to 'トップページに戻る', root_path %>
+      <% end %>
+    </div>
+    <% if alert %>
+      <p><%= alert %></p>
+    <% end %>
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </header>
 
   <body>
-    <header>
-      <div class='header_links'>
-        <% if user_signed_in? %>
-          <% if current_user.admin? %>
-            <%= link_to '管理', rails_admin_path %>
-          <% end %>
-          <%= link_to 'レビューがある本一覧', books_path %>
-          <%= link_to '本を検索', new_book_search_path %>
-          <%= link_to 'ユーザー情報', users_show_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'ログイン', user_session_path %>
-          <%= link_to 'アカウント作成', new_user_registration_path %>
-          <%= link_to 'トップページに戻る', root_path %>
-        <% end %>
-      </div>
-      <% if alert %>
-        <p><%= alert %></p>
-      <% end %>
-      <%= yield %>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </header>
   </body>
 
   <footer>
     <p>&copy; 2022~ Kim Co.Ltd</p>
   </footer>
-
 </html>
