@@ -3,8 +3,7 @@
 
 <div class="">
   <% @books.each do |book| %>
-  <div class="">
-    <%  %>
+  <div class="book_index">
     <%= link_to (image_tag(book.image)), book.url %>
     <p><%= link_to '本のリンク', book.url %></p>
     <p><%= book.title %></p>
